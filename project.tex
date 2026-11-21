@@ -1,0 +1,31 @@
+% Resume entry: Distributed Emergency Resource Matching System
+% Paste ONE of the two versions below into your resume.
+
+% ---------------------------------------------------------------------------
+% Version 1: for the "Jake's Resume" template (uses its \resume... macros)
+% ---------------------------------------------------------------------------
+\resumeProjectHeading
+  {\textbf{Distributed Emergency Resource Matching System} $|$ \emph{Python, FastAPI, RabbitMQ, SQLite, Docker, Kubernetes}}{Oct -- Nov 2026}
+  \resumeItemListStart
+    \resumeItem{Built a microservice platform that matches emergency requests (water, food, medicine, rescue) to nearby volunteers and NGOs, running as 12 containers across 4 services and a RabbitMQ broker.}
+    \resumeItem{Designed a sharded, replicated key-value store (3 shards $\times$ 2 replicas, SHA-256 partitioning) behind a coordinator that handles routing, heartbeat failure detection and read failover.}
+    \resumeItem{Implemented automatic node recovery: a rejoining replica merges a peer snapshot by version (last-writer-wins with tombstones) while already accepting new writes.}
+    \resumeItem{Prevented resource over-allocation across concurrent matching workers using optimistic compare-and-set with rollback, verified with 20 simultaneous requests against 12 units of capacity.}
+    \resumeItem{Built asynchronous matching on RabbitMQ with competing consumers and a TTL dead-letter retry queue, plus a sweeper that re-queues requests accepted during a broker outage.}
+    \resumeItem{Deployed on Kubernetes with StatefulSets, health probes and an HPA (2--6 replicas); wrote 20 unit and integration tests covering node and broker failures.}
+  \resumeItemListEnd
+
+% ---------------------------------------------------------------------------
+% Version 2: plain LaTeX, no custom macros (needs \usepackage{hyperref})
+% ---------------------------------------------------------------------------
+% \noindent\textbf{Distributed Emergency Resource Matching System} \hfill Oct -- Nov 2026\\
+% \emph{Python, FastAPI, RabbitMQ, SQLite, Docker, Kubernetes} \hfill
+% \href{https://github.com/Shiva0025/Emergency-Response-Matching}{GitHub}
+% \begin{itemize}\setlength{\itemsep}{0pt}
+%   \item Built a microservice platform that matches emergency requests (water, food, medicine, rescue) to nearby volunteers and NGOs, running as 12 containers across 4 services and a RabbitMQ broker.
+%   \item Designed a sharded, replicated key-value store (3 shards $\times$ 2 replicas, SHA-256 partitioning) behind a coordinator that handles routing, heartbeat failure detection and read failover.
+%   \item Implemented automatic node recovery: a rejoining replica merges a peer snapshot by version (last-writer-wins with tombstones) while already accepting new writes.
+%   \item Prevented resource over-allocation across concurrent matching workers using optimistic compare-and-set with rollback, verified with 20 simultaneous requests against 12 units of capacity.
+%   \item Built asynchronous matching on RabbitMQ with competing consumers and a TTL dead-letter retry queue, plus a sweeper that re-queues requests accepted during a broker outage.
+%   \item Deployed on Kubernetes with StatefulSets, health probes and an HPA (2--6 replicas); wrote 20 unit and integration tests covering node and broker failures.
+% \end{itemize}
